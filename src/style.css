@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-black-medium: #0c0c0c;
+
+  --color-gray-dark: #1e1e1e;
+  --color-gray-medium: #383839;
+  --color-gray-light: #414141;
+  --color-gray-neutral: #737373;
+
+  --color-off-white: #fffeff;
+  --color-indigo-light: #eff0f9;
+
+  --color-red-light: #e26777;
+  --color-red-medium: #cf4055;
+  --color-red-dark: #bf2222;
+
+  --color-yellow-light: #fcd398;
+  --color-yellow-medium: #f6b756;
+
+  --color-blue-light: #9ebdff;
+  --color-blue-medium: #5b8dc9;
+
+  --color-gradient-blue-left: #dde8ff;
+  --color-gradient-blue-right: #c6d7ec;
+
+  --color-green-light: #a2e08c;
+  --color-green-medium: #7ece67;
+}
+
+:root {
+  font-family: "Nata Sans", Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+
+  color-scheme: light;
+  color: var(--color-gray-900);
+  background-color: var(--color-gray-50);
+  box-sizing: border-box;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  width: 100%;
+  max-width: none;
+}
+
+.shadow-light {
+  box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+}
