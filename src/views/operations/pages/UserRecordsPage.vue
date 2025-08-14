@@ -16,7 +16,6 @@ import { useModalConfirmation } from "@/composables/useModalConfirmation";
 const headers = ["Operation", "Amount", "Balance", "Response", "Date", ""];
 
 const isLoading = ref(false);
-const errorMessage = ref("");
 
 const pageableData = reactive({
   data: [],
@@ -45,7 +44,6 @@ const handleOpenNewOperationModal = async () => {
 
 const fetchRecords = async () => {
   isLoading.value = true;
-  errorMessage.value = "";
 
   const { data, error } = await recordsRepository.getUserRecords({
     search: pageableData.search || undefined,
@@ -55,7 +53,7 @@ const fetchRecords = async () => {
   });
 
   if (error) {
-    errorMessage.value = error || "Failed to load records";
+    toast.error(error || "Failed to load records");
     isLoading.value = false;
     return;
   }

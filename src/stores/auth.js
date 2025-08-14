@@ -29,6 +29,10 @@ export const useAuthStore = defineStore("auth", {
       }
     },
 
+    setCurrentUserBalance(balance) {
+      this.currentUser.balance = balance;
+    },
+
     setStorageTokens({ accessToken, refreshToken }) {
       sessionStorage.setItem(TOKEN_KEYS.ACCESS_TOKEN, accessToken);
       localStorage.setItem(TOKEN_KEYS.REFRESH_TOKEN, refreshToken);
