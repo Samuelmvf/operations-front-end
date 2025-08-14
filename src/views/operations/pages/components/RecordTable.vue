@@ -60,6 +60,7 @@ const getRowClass = (index) => {
           </TableHead>
         </TableRow>
       </TableHeader>
+
       <TableBody>
         <TableRow v-for="(r, index) in rows" :key="r.id" :class="getRowClass(index)">
           <TableCell class="text-black">{{
@@ -85,11 +86,9 @@ const getRowClass = (index) => {
           </TableCell>
         </TableRow>
 
-        <TableRow v-if="!isLoading && rows.length === 0">
-          <TableCell colspan="6">
-            <TableEmpty>No records found</TableEmpty>
-          </TableCell>
-        </TableRow>
+        <TableEmpty :colspan="6" v-if="!isLoading && rows.length === 0">
+          No records found
+        </TableEmpty>
       </TableBody>
     </Table>
 

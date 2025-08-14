@@ -16,6 +16,8 @@ import { VisuallyHidden } from "reka-ui";
 
 import { operationsRepository } from "@/repositories";
 
+import { useAuthStore } from "@/stores/auth";
+
 import Input from "@/components/ui/Input.vue";
 import Button from "@/components/ui/Button.vue";
 import Select from "@/components/ui/select/Select.vue";
@@ -23,7 +25,10 @@ import SelectTrigger from "@/components/ui/select/SelectTrigger.vue";
 import SelectContent from "@/components/ui/select/SelectContent.vue";
 import SelectItem from "@/components/ui/select/SelectItem.vue";
 import SelectValue from "@/components/ui/select/SelectValue.vue";
+
 import { OPERATION_TYPES, OPERATION_TYPES_LABELS } from "@/views/operations/lib/utils";
+
+const authStore = useAuthStore();
 
 const operationType = ref(OPERATION_TYPES.ADDITION);
 const operand1 = ref("0");
@@ -72,6 +77,7 @@ const handleSubmit = async () => {
     toast.success(
       `Result: ${data.result} | Cost: ${data.cost} | Balance: ${data.remainingBalance}`
     );
+    authStore.setCurrentUserBalance(data.remainingBalance);
     closeDialog(data);
   } finally {
     isLoading.value = false;

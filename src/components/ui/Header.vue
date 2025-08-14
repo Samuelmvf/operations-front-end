@@ -19,6 +19,7 @@ const authStore = useAuthStore();
       </div>
 
       <div class="flex items-center gap-6">
+        <span class="text-black/80">Balance: {{ authStore.currentUser.balance }}</span>
         <span class="user-profile__text text-black/80">{{
           authStore.currentUser.username
         }}</span>
