@@ -116,7 +116,7 @@ onMounted(fetchRecords);
           <SearchSvg />
         </div>
 
-        <Button variant="primary" class="h-10" @click="fetchRecords">Search</Button>
+        <Button variant="primary" class="h-10" @click="handleSearchData">Search</Button>
 
         <Button variant="confirm" class="h-10" @click="handleOpenNewOperationModal">
           New Operation
