@@ -71,7 +71,7 @@ const fetchRecords = async () => {
   isLoading.value = false;
 };
 
-const handleSearchData = async () => {
+const handleSearchData = () => {
   pageableData.page = 0;
   fetchRecords();
 };
