@@ -71,6 +71,11 @@ const fetchRecords = async () => {
   isLoading.value = false;
 };
 
+const handleSearchData = async () => {
+  pageableData.page = 0;
+  fetchRecords();
+};
+
 const handleDelete = async (id) => {
   const callback = await actionConfirmation();
   if (!callback) return;
@@ -105,7 +110,7 @@ onMounted(fetchRecords);
             class="pl-10 pr-3 h-10 rounded-full bg-black/[0.03] focus:border-black/20 focus:ring-0"
             placeholder="Search records"
             v-model="pageableData.search"
-            @keyup.enter="fetchRecords"
+            @keyup.enter="handleSearchData"
           />
 
           <SearchSvg />
